@@ -68,28 +68,28 @@ force_minimum_fan_speed=0
 # As the temperature increase CPU cores will be disabled and vice versa.
 
 #
-# temperature_low_cpu_threshold: The lower temperature threshold in
+# cpu_low_threshold: The lower temperature threshold in
 # ten thousandth of degree celsius below which all CPU cores will be enabled.
 #
-temperature_low_cpu_threshold=85000
+cpu_low_threshold=85000
 
 #
-# temperature_medium_cpu_threshold: The first threshold in ten thousandth
+# cpu_medium_threshold: The first threshold in ten thousandth
 # of degree celsius above which only 3 CPU cores will be left enabled.
 #
-temperature_medium_cpu_threshold=98000
+cpu_medium_threshold=98000
 
 #
-# temperature_high_cpu_threshold: The second threshold in ten thousandth of
+# cpu_high_threshold: The second threshold in ten thousandth of
 # degree celsius above which only 2 CPU cores will be left enabled.
 #
-temperature_high_cpu_threshold=99000
+cpu_high_threshold=99000
 
 #
-# temperature_critical_cpu_threshold: The third threshold in ten thousandth of
+# cpu_critical_threshold: The third threshold in ten thousandth of
 # degree celsius above which only 1 CPU cores will be left enabled.
 #
-temperature_critical_cpu_threshold=100000
+cpu_critical_threshold=100000
 
 # The next section contains temperature thresholds for the fans management.
 # Based on those thresholds the service will set the fan speed in order
@@ -97,26 +97,26 @@ temperature_critical_cpu_threshold=100000
 # As the temperature increase the fans will spin faster and vice versa.
 
 #
-# temperature_low_fan_threshold: Set the threshold in ten thousandth of degree
+# fan_low_threshold: Set the threshold in ten thousandth of degree
 # celsius at which the fan speed can start to be reduced.
 # Below this threshold the fan speed will be reduced every second by 5.
 #
-temperature_low_fan_threshold=80000
+fan_low_threshold=80000
 
 #
-# temperature_medium_fan_threshold: Set the threshold in ten thousandth of
+# fan_high_threshold: Set the threshold in ten thousandth of
 # degree celsius at which the fan speed starts to be increased.
 # Above this threshold the fan speed will be increased every second by 5.
 #
-temperature_high_fan_threshold=84000
+fan_high_threshold=84000
 
 #
-# temperature_high_fan_threshold: Set the threshold in ten thousandth of degree
+# fan_critical_threshold: Set the threshold in ten thousandth of degree
 # celsius at which the fan speed will be set to 100% (255).
 # Above this threshold the temperature is considered as critical and
 # requires immediate cooling.
 #
-temperature_critical_fan_threshold=94000
+fan_critical_threshold=94000
 
 ```
 
