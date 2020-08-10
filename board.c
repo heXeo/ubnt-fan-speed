@@ -35,13 +35,13 @@ static unsigned int get_board_id(void) {
 ubnt_board_t* board_init(ubnt_board_t* const board, const config_t* const config) {
   board->id = get_board_id();
   board->minimum_fan_speed = 0x6d;
-  board->temperature_threshold_85 = config->cpu_low_threshold;
-  board->temperature_threshold_98 = config->cpu_medium_threshold;
-  board->temperature_threshold_99 = config->cpu_high_threshold;
-  board->temperature_threshold_100 = config->cpu_critical_threshold;
-  board->temperature_threshold_80 = config->fan_low_threshold;
-  board->temperature_threshold_84 = config->fan_high_threshold;
-  board->temperature_threshold_94 = config->fan_critical_threshold;
+  board->cpu_low_threshold = config->cpu_low_threshold;
+  board->cpu_medium_threshold = config->cpu_medium_threshold;
+  board->cpu_high_threshold = config->cpu_high_threshold;
+  board->cpu_critical_threshold = config->cpu_critical_threshold;
+  board->fan_low_threshold = config->fan_low_threshold;
+  board->fan_high_threshold = config->fan_high_threshold;
+  board->fan_critical_threshold = config->fan_critical_threshold;
   board->set_fan_mode = NULL;
   board->set_fan_speed = NULL;
   board->get_fan_speed = NULL;

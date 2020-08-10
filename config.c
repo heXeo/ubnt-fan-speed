@@ -19,7 +19,11 @@ void read_config(config_t* const config) {
   config->fan_high_threshold = 84000;
   config->fan_critical_threshold = 94000;
 
-  FILE* fp = fopen("/etc/ubnt/fan-speed.conf", "r");
+  if (config->path == NULL) {
+    config->path = "/etc/ubnt/fan-speed.conf";
+  }
+
+  FILE* fp = fopen(config->path, "r");
   if (fp == NULL) {
     return;
   }

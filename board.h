@@ -6,13 +6,13 @@
 
   struct ubnt_board {
     unsigned short id;
-    unsigned int temperature_threshold_98;
-    unsigned int temperature_threshold_99;
-    unsigned int temperature_threshold_100;
-    unsigned int temperature_threshold_85;
-    unsigned int temperature_threshold_84;
-    unsigned int temperature_threshold_80;
-    unsigned int temperature_threshold_94;
+    unsigned int cpu_medium_threshold;
+    unsigned int cpu_high_threshold;
+    unsigned int cpu_critical_threshold;
+    unsigned int cpu_low_threshold;
+    unsigned int fan_high_threshold;
+    unsigned int fan_low_threshold;
+    unsigned int fan_critical_threshold;
     unsigned char minimum_fan_speed;
     void (*set_fan_mode)(fan_mode_t mode);
     void (*set_fan_speed)(unsigned char speed);

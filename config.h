@@ -2,6 +2,7 @@
 #define _CONFIG_H_
 
   struct config {
+    const char* path;
     unsigned char log_level;
     unsigned char minimum_fan_speed;
     unsigned char force_minimum_fan_speed;
@@ -15,6 +16,7 @@
   };
   typedef struct config config_t;
 
+  config_t g_config;
   void read_config(config_t* const config);
 
 #endif

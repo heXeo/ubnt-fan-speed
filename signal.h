@@ -1,6 +1,6 @@
 #ifndef _SIGNAL_H_
 #define _SIGNAL_H_
 
-  void sighandler(const int signum);
+  void signal_init(void);
 
 #endif

@@ -20,6 +20,8 @@ It has been years since the last time i did a bit of reverse engineering and wri
 - [x] Possibility to override `minimum_fan_speed` in /etc/ubnt/fan-speed.conf
 - [x] Possibility to customize temperature thresholds in /etc/ubnt/fan-speed.conf
 - [x] Replace `R_OK` by `F_OK` in `access` call
+- [x] Replace `signal` by `sigaction`
+- [x] Hot restart via `SIGHUP`
 
 ## Building from sources
 
@@ -28,15 +30,30 @@ apt-get install gcc-aarch64-linux-gnu
 make
 ```
 
+## Installation - UDM/UDMPro
+
+- Install [on-boot-script](https://github.com/boostchicken/udm-utilities/tree/master/on-boot-script)
+- Copy [on_boot.d/01-fan-speed.sh](on_boot.d/01-fan-speed.sh) to /mnt/data/on_boot.d/01-fan-speed.sh
+- Make the boot script executable `chmod +x /mnt/data/on_boot.d/01-fan-speed.sh`
+- Copy ubnt-fan-speed executable in /mnt/data/ubnt-fan-speed
+- Create a configuration file at /mnt/data/ubnt-fan-speed.conf
+- Reboot
+
+## Installation - Other (Untested)
+
+- Replace /usr/sbin/ubnt-fan-speed
+- Create a configuration file at /etc/ubnt/fan-speed.conf
+- Reboot
+
 ## Thoughts
 
 I think the name of the executable doesn't reflect properly what it does.
 It controls not only fans but also CPU cores enabling/disabling in order to control the temperature of the applicance.
-A better name would be `ubnt-thermal-control`.
+Wouldn't a better name be `ubnt-thermal-control` ?
 
 ## Configuration file
 
-The configuration file is located at `/etc/ubnt/fan-speed.conf`
+The default configuration file location is `/etc/ubnt/fan-speed.conf`.
 
 ```
 #
