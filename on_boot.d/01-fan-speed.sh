@@ -7,13 +7,13 @@ if pidof ubnt-fan-speed &>/dev/null; then
   sleep 1
 fi
 
-if ! test -f "/usr/sbin/ubnt-fan-speed"; then
+if test -f "/usr/sbin/ubnt-fan-speed"; then
   rm /usr/sbin/ubnt-fan-speed
-  ln -s /usr/sbin/ubnt-fan-speed /mnt/data/ubnt-fan-speed
+  ln -s /mnt/data/ubnt-fan-speed /usr/sbin/ubnt-fan-speed 
 fi
 
 if ! test -f "/etc/ubnt/fan-speed.conf"; then
-  ln -s /etc/ubnt/fan-speed.conf /mnt/data/ubnt-fan-speed.conf
+  ln -s  /mnt/data/ubnt-fan-speed.conf /etc/ubnt/fan-speed.conf
 fi
 
 /etc/init.d/S04ubnt-fan-speed start

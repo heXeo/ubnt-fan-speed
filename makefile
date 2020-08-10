@@ -1,7 +1,7 @@
-CC=gcc
-STRIP=strip
-#CC=aarch64-linux-gnu-gcc
-#STRIP=aarch64-linux-gnu-strip
+#CC=gcc
+#STRIP=strip
+CC=aarch64-linux-gnu-gcc
+STRIP=aarch64-linux-gnu-strip
 CFLAGS=-Wall -Wextra -Werror -ansi -pedantic -std=gnu99 -Os -ffunction-sections -fdata-sections
 LDFLAGS=-s -Wl,--gc-sections
 EXEC=ubnt-fan-speed
