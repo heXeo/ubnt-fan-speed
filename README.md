@@ -137,6 +137,10 @@ fan_critical_threshold=94000
 
 ```
 
+## TODO
+
+- Add ability to control chassis/hdd/cpu fans independently
+
 ## License
 
 Copyright (c) 2020 Leandre Gohy
