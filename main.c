@@ -63,43 +63,35 @@ int main(int argc, char** argv) {
   g_board.set_fan_speed(fan_speed);
 
   while (1) {
-    /* Make sure fan is in manual mode ! */
     g_board.set_fan_mode(FAN_MODE_MANUAL);
 
     temperature = g_board.get_temperature();
 
-    /* If temperature reach 94°C set fan speed to 100% */
     if (temperature >= g_board.fan_critical_threshold && fan_speed < 255) {
       fan_speed = 255;
       g_board.set_fan_speed(fan_speed);
     }
-    /* If temperature reach 84°C progressively increase fan speed */
     else if (temperature >= g_board.fan_high_threshold && fan_speed < 255) {
       fan_speed = CLAMP(fan_speed + 5, g_board.minimum_fan_speed, 255);
       g_board.set_fan_speed(fan_speed);
     }
-    /* If temperature less or equal 80°C progressibely reduce fan speed */
     else if (temperature <= g_board.fan_low_threshold && fan_speed > g_board.minimum_fan_speed) {
       fan_speed = CLAMP(fan_speed - 5, g_board.minimum_fan_speed, 255);
       g_board.set_fan_speed(fan_speed);
     }
 
-    /* If temperature is lower or equal than 85°C enable back all cpu cores */
     if (temperature <= g_board.cpu_low_threshold && max_cpu_id < 3) {
       max_cpu_id = 3;
       g_board.set_online_cpus(max_cpu_id);
     }
-    /* If temperature reach 98°C disable cpu core 3 */
     else if (temperature >= g_board.cpu_medium_threshold && max_cpu_id > 2) {
       max_cpu_id = 2;
       g_board.set_online_cpus(max_cpu_id);
     }
-    /* If temperature reach 99°C disable cpu cores 2,3 */
     else if (temperature >= g_board.cpu_high_threshold && max_cpu_id > 1) {
       max_cpu_id = 1;
       g_board.set_online_cpus(max_cpu_id);
     }
-    /* If temperature reach 100°C disable cpu cores 1,2,3 */ 
     else if (temperature >= g_board.cpu_critical_threshold && max_cpu_id > 0) {
       max_cpu_id = 0;
       g_board.set_online_cpus(max_cpu_id);
