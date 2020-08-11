@@ -14,12 +14,13 @@ ubnt-fan-speed: $(OBJ)
 	@$(CC) -o $@ $^ $(LDFLAGS)
 	@$(STRIP) --strip-all --remove-section=.comment --remove-section=.note $(EXEC)
 
-main.o: board.h util.h fan.h cpu.h signal.h
-board.o: board.h cpu.h fan.h temperature.h util.h
+board.o: board.h cpu.h fan.h temperature.h util.h config.h
+config.o: config.h
 cpu.o: util.h
 fan.o: fan.h util.h
+main.o: board.h util.h fan.h cpu.h signal.h config.h
 temperature.o: util.h
-signal.o: board.h
+signal.o: board.h config.h
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS)
