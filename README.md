@@ -140,6 +140,10 @@ fan_critical_threshold=94000
 ## TODO
 
 - Add ability to control chassis/hdd/cpu fans independently
+- Check if drive is HDD or SSD
+- Allow to tweak increase/decrease rate
+- Add sensor sys file paths in config
+- Add fan sys file paths in config
 
 ## License
 
