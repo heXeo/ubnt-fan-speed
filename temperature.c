@@ -20,7 +20,7 @@ int legacy_get_temperature(void) {
 
 int get_temperature(void) {
   int temperature1 = _get_temperature("/sys/class/thermal/thermal_zone0/temp");
-  int temperature2 = _get_temperature("/sys/class/hwmon/hwmon0/temp2_input");
+  int temperature2 = _get_temperature("/sys/class/hwmon/hwmon0/device/temp2_input");
 
   if (temperature2 > 90000 && temperature2 > temperature1) {
     return temperature2;
